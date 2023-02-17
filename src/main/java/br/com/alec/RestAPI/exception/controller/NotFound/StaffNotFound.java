@@ -1,0 +1,18 @@
+package br.com.alec.RestAPI.exception.controller.NotFound;
+
+import br.com.alec.RestAPI.exception.Staff.StaffNotFoundExcep;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ControllerAdvice
+public class StaffNotFound {
+    @ResponseBody
+    @ExceptionHandler(StaffNotFoundExcep.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String orderNotFound(StaffNotFoundExcep e){
+        return e.getMessage();
+    }
+}
