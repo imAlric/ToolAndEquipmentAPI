@@ -15,9 +15,11 @@
 <h2><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/sleeping-face_1f634.png"/> TL;DR;</h2>
 API REST para execução, envio, pesquisa e controle de dados em um contexto de sistema para manutenção de equipamentos/ferramentas.
 <br/>
+
 ```shell
 ./mvnw spring-boot:run
 ```
+
 <a href="#commands">➤ Comandos da API</a>
 
 <h2><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/bookmark-tabs_1f4d1.png"/> Sumário</h2>
@@ -33,24 +35,20 @@ API REST para execução, envio, pesquisa e controle de dados em um contexto de 
 
 <h2 id="tech"><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/man-technologist_1f468-200d-1f4bb.png"/> Tecnologias Utilizadas:</h2>
 
-<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg"/>
-IntelliJ IDEA
+<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg"/> IntelliJ IDEA
 <br/>
 <br/>
-<img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/java/java-plain.svg"/>
-Java 17
+<img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/java/java-plain.svg"/> Java 17
 <br/>
 <br/>
 <img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/spring/spring-original.svg"/>
 Spring-Boot & SpringMVC
 <br/>
 <br/>
-<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Apache_Feather_Logo.svg"/>
-Maven
+<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Apache_Feather_Logo.svg"/> Maven
 <br/>
 <br/>
-<img style="vertical-align:middle" width="25" src="https://www.vectorlogo.zone/logos/hibernate/hibernate-icon.svg"/>
-JPA & Hibernate
+<img style="vertical-align:middle" width="25" src="https://www.vectorlogo.zone/logos/hibernate/hibernate-icon.svg"/> JPA & Hibernate
 
 <h2 id="about"><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/information_2139-fe0f.png"/> Sobre o Sistema:</h2>
 Esta API foi desenvolvida com Java, utilizando Spring-Boot e Maven, SpringMVC, JPA e Hibernate,
@@ -117,15 +115,15 @@ ID do funcionário </small>[GET]</h5>
 
 <h2 id="test"><img style="vertical-align:middle" width="22" src="https://em-content.zobj.net/thumbs/120/microsoft/319/test-tube_1f9ea.png"/> Testar o Sistema:</h2>
 Os testes unitários do sistema podem ser feitos por meio do comando Maven:
+
 ```shell
 ./mvnw test
 ```
 
 <h2 id="use"><img style="vertical-align:middle" width="22" src="https://em-content.zobj.net/thumbs/120/microsoft/319/desktop-computer_1f5a5-fe0f.png"/> Utilizar o Sistema:</h2>
-<img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/warning_26a0-fe0f.png"/>
-**Nota Importante:**
-Todas as pesquisas com mais de um resultado trazem paginação.
-Para controlar o número de resultados e a página acessada, utilize:
+<p><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/warning_26a0-fe0f.png"/> <strong>Nota Importante:</strong> Todas as pesquisas com mais de um resultado trazem paginação.
+Para controlar o número de resultados e a página acessada, utilize:</p>
+
 ```url
 ?page={número da página}&size={número de resultados}
 ```
@@ -135,7 +133,9 @@ http://localhost:8080/order/find/pending?page=1&size=15
 ```
 Por padrão o número de resultados de cada página é **10**, sempre começando pela página **0**.
 <h3 id="commands"><img style="vertical-align:middle" width="22" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Windows_Terminal_logo.svg"/> Inicializando a API:</h3>
+
 Execute o sistema por meio do comando Maven:
+
 ```shell
 ./mvnw spring-boot:run
 ```
@@ -149,6 +149,7 @@ Após isso, prossiga utilizando algum dos métodos listados abaixo:
 <summary><strong>Ordem de Serviço</strong> <small>("/order")</small></summary>
 
 <h4>Criar uma nova ordem de serviço. <small>("/order/new")</small></h4>
+
 ```url
 POST http://localhost:8080/order/new
 ```
@@ -178,6 +179,7 @@ POST http://localhost:8080/order/new
 ```
 
 <h4>Encontrar uma ordem de serviço por ID. <small>("order/find/<strong>{id}</strong>")</small></h4>
+
 ```url
 GET http://localhost:8080/order/find/{id}
 ```
@@ -231,6 +233,7 @@ GET http://localhost:8080/order/find/staff/{id do funcionário}/closed
 </details>
 
 <h4><strong>Interromper uma ordem de serviço por ID. <small>("/order/interrupt/<strong>{id}</strong>")</small></strong></h4>
+
 ```url
 PUT localhost:8080/order/interrupt/{id da ordem de serviço}
 ```
@@ -242,6 +245,7 @@ PUT localhost:8080/order/interrupt/{id da ordem de serviço}
 ```
 
 <h4><strong>Retomar uma ordem de serviço interrompida por ID. <small>("/order/resume/<strong>{id}</strong>")</small></strong></h4>
+
 ```url
 PUT localhost:8080/order/resume/{id da ordem de serviço}
 ```
@@ -253,6 +257,7 @@ PUT localhost:8080/order/resume/{id da ordem de serviço}
 ```
 
 <h4><strong>Baixar uma ordem de serviço por ID. <small>("/order/close/<strong>{id}</strong>")</small></strong></h4>
+
 ```url
 PUT localhost:8080/order/close/{id da ordem de serviço}
 ```
@@ -264,6 +269,7 @@ PUT localhost:8080/order/close/{id da ordem de serviço}
 ```
 
 <h4><strong>Excluír uma ordem de serviço por ID. <small>("/order/<strong>{id}</strong>")</small></strong></h4>
+
 ```url
 DELETE localhost:8080/order/{id da ordem de serviço}
 ```
@@ -274,11 +280,13 @@ DELETE localhost:8080/order/{id da ordem de serviço}
 <summary><strong>Ferramenta/Equipamento</strong> <small>("/tool")</small></summary>
 
 <h4>Encontrar uma ferramenta/equipamento por ID. <small>("/tool/find/<strong>{id}</strong>")</small></h4>
+
 ```url
 GET http://localhost:8080/tool/find/{id da ferramenta/equipamento}
 ```
 
 <h4>Encontrar todas as ferramentas/equipamentos ativos. <small>("/tool/find/active")</small></h4>
+
 ```url
 GET http://localhost:8080/tool/find/active
 ```
@@ -289,11 +297,13 @@ GET http://localhost:8080/tool/find/active
 <summary><strong>Cliente</strong> <small>("/customer")</small></summary>
 
 <h4>Encontrar um cliente por ID. <small>("/customer/find/<strong>{id}</strong>")</small></h4>
+
 ```url
 GET http://localhost:8080/customer/find/{id do cliente}
 ```
 
 <h4>Encontrar todos os clientes ativos. <small>("/customer/find/active")</small></h4>
+
 ```url
 GET http://localhost:8080/customer/find/active
 ```
@@ -304,11 +314,13 @@ GET http://localhost:8080/customer/find/active
 <summary><strong>Funcionário</strong> <small>("/staff")</small></summary>
 
 <h4>Encontrar um funcionário por ID. <small>("/staff/find/<strong>{id}</strong>")</small></h4>
+
 ```url
 GET http://localhost:8080/staff/find/{id do funcionário}
 ```
 
 <h4>Encontrar todos os funcionários ativos. <small>("/staff/find/active")</small></h4>
+
 ```url
 GET http://localhost:8080/staff/find/active
 ```
@@ -326,6 +338,7 @@ GET http://localhost:8080/staff/find/active
 <summary><strong>Ordem de Serviço</strong> <small>("/order")</small></summary>
 
 <h4>(POST) Criar uma nova ordem de serviço. <small>("/order/new")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/new' \
 --header 'Content-Type: application/json' \
@@ -354,6 +367,7 @@ curl --location 'localhost:8080/order/new' \
 ```
 
 <h4>(GET) Encontrar uma ordem de serviço por ID. <small>("order/find/<strong>{id}</strong>")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/find/<id da ordem de serviço>' \
 --data ''
@@ -363,18 +377,21 @@ curl --location 'localhost:8080/order/find/<id da ordem de serviço>' \
 <summary>(GET) Encontrar ordens de serviço pendentes... </summary>
 
 <h4><strong>PENDENTES > TODAS...</strong> <small>("order/find/pending")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/find/pending' \
 --data ''
 ```
 
 <h4><strong>PENDENTES > POR CLIENTE...</strong> <small>("/order/find/customer/<strong>{id}</strong>/pending")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/find/customer/<id do cliente>/pending' \
 --data ''
 ```
 
 <h4><strong>PENDENTES > POR FUNCIONÁRIO...</strong> <small>("/order/find/staff/<strong>{id}</strong>/pending")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/find/customer/<id do funcionário>/pending' \
 --data ''
@@ -388,18 +405,21 @@ curl --location 'localhost:8080/order/find/customer/<id do funcionário>/pending
 <summary>(GET) Encontrar ordens de serviço baixadas... </summary>
 
 <h4><strong>BAIXADAS > TODAS...</strong> <small>("order/find/closed")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/find/closed' \
 --data ''
 ```
 
 <h4><strong>BAIXADAS > POR CLIENTE...</strong> <small>("/order/find/customer/<strong>{id}</strong>/closed")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/find/customer/<id do cliente>/closed' \
 --data ''
 ```
 
 <h4><strong>BAIXADAS > POR FUNCIONÁRIO...</strong> <small>("/order/find/staff/<strong>{id}</strong>/closed")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/order/find/customer/<id do funcionário>/closed' \
 --data ''
@@ -408,6 +428,7 @@ curl --location 'localhost:8080/order/find/customer/<id do funcionário>/closed'
 </details>
 
 <h4><strong>(PUT) Interromper uma ordem de serviço por ID. <small>("/order/interrupt/<strong>{id}</strong>")</small></strong></h4>
+
 ```shell
 curl --location --request PUT 'localhost:8080/order/interrupt/<id da ordem de serviço>' \
 --header 'Content-Type: application/json' \
@@ -419,6 +440,7 @@ curl --location --request PUT 'localhost:8080/order/interrupt/<id da ordem de se
 ```
 
 <h4><strong>(PUT) Retomar uma ordem de serviço interrompida por ID. <small>("/order/resume/<strong>{id}</strong>")</small></strong></h4>
+
 ```shell
 curl --location --request PUT 'localhost:8080/order/resume/<id da ordem de serviço>' \
 --header 'Content-Type: application/json' \
@@ -430,6 +452,7 @@ curl --location --request PUT 'localhost:8080/order/resume/<id da ordem de servi
 ```
 
 <h4><strong>(PUT) Baixar uma ordem de serviço por ID. <small>("/order/close/<strong>{id}</strong>")</small></strong></h4>
+
 ```shell
 curl --location --request PUT 'localhost:8080/order/close/<id da ordem de serviço>' \
 --header 'Content-Type: application/json' \
@@ -441,6 +464,7 @@ curl --location --request PUT 'localhost:8080/order/close/<id da ordem de servi�
 ```
 
 <h4><strong>(DELETE) Excluír uma ordem de serviço por ID. <small>("/order/<strong>{id}</strong>")</small></strong></h4>
+
 ```shell
 curl --location --request DELETE 'localhost:8080/order/<id da ordem de serviço>' \
 --data ''
@@ -452,12 +476,14 @@ curl --location --request DELETE 'localhost:8080/order/<id da ordem de serviço>
 <summary><strong>Ferramenta/Equipamento</strong> <small>("/tool")</small></summary>
 
 <h4>(GET) Encontrar uma ferramenta/equipamento por ID. <small>("/tool/find/<strong>{id}</strong>")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/tool/find/<id da ferramenta/equipamento>' \
 --data ''
 ```
 
 <h4>(GET) Encontrar todas as ferramentas/equipamentos ativos. <small>("/tool/find/active")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/tool/find/active' \
 --data ''
@@ -469,12 +495,14 @@ curl --location 'localhost:8080/tool/find/active' \
 <summary><strong>Cliente</strong> <small>("/customer")</small></summary>
 
 <h4>(GET) Encontrar um cliente por ID. <small>("/customer/find/<strong>{id}</strong>")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/customer/find/<id do cliente>' \
 --data ''
 ```
 
 <h4>(GET) Encontrar todos os clientes ativos. <small>("/customer/find/active")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/customer/find/active' \
 --data ''
@@ -486,12 +514,14 @@ curl --location 'localhost:8080/customer/find/active' \
 <summary><strong>Funcionário</strong> <small>("/staff")</small></summary>
 
 <h4>(GET) Encontrar um funcionário por ID. <small>("/staff/find/<strong>{id}</strong>")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/staff/find/<id do funcionário>' \
 --data ''
 ```
 
 <h4>(GET) Encontrar todos os funcionários ativos. <small>("/staff/find/active")</small></h4>
+
 ```shell
 curl --location 'localhost:8080/staff/find/active' \
 --data ''
