@@ -34,24 +34,34 @@ API REST para execução, envio, pesquisa e controle de dados em um contexto de 
 
 <h2 id="tech"><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/man-technologist_1f468-200d-1f4bb.png"/> Tecnologias Utilizadas:</h2>
 
+<span>
 <img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg"/>
 IntelliJ IDEA
+</span>
 <br/>
 <br/>
+<span>
 <img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/java/java-plain.svg"/>
 Java 17
+</span>
 <br/>
 <br/>
+<span>
 <img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/spring/spring-original.svg"/>
 Spring-Boot & SpringMVC
+</span>
 <br/>
 <br/>
+<span>
 <img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Apache_Feather_Logo.svg"/>
 Maven
+</span>
 <br/>
 <br/>
+<span>
 <img style="vertical-align:middle" width="25" src="https://www.vectorlogo.zone/logos/hibernate/hibernate-icon.svg"/>
 JPA & Hibernate
+</span>
 
 <h2 id="about"><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/information_2139-fe0f.png"/> Sobre o Sistema:</h2>
 Esta API foi desenvolvida com Java, utilizando Spring-Boot e Maven, SpringMVC, JPA e Hibernate,
@@ -129,8 +139,10 @@ Os testes unitários do sistema podem ser feitos por meio do comando Maven:
 ```
 
 <h2 id="use"><img style="vertical-align:middle" width="22" src="https://em-content.zobj.net/thumbs/120/microsoft/319/desktop-computer_1f5a5-fe0f.png"/> Utilizar o Sistema:</h2>
+<span>
 <img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/warning_26a0-fe0f.png"/>
 <strong>Nota Importante:</strong>
+</span>
 Todas as pesquisas com mais de um resultado trazem paginação.
 Para controlar o número de resultados e a página acessada, utilize:
 
