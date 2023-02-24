@@ -130,7 +130,7 @@ Os testes unitários do sistema podem ser feitos por meio do comando Maven:
 
 <h2 id="use"><img style="vertical-align:middle" width="22" src="https://em-content.zobj.net/thumbs/120/microsoft/319/desktop-computer_1f5a5-fe0f.png"/> Utilizar o Sistema:</h2>
 <img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/warning_26a0-fe0f.png"/>
-**Nota Importante:**
+<strong>Nota Importante:</strong>
 Todas as pesquisas com mais de um resultado trazem paginação.
 Para controlar o número de resultados e a página acessada, utilize:
 
