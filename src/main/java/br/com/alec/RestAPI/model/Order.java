@@ -2,6 +2,7 @@ package br.com.alec.RestAPI.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
@@ -13,7 +14,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     @Column(length=500)
-    @NotNull
+    @NotBlank
     private String order_desc;
     @OneToOne(cascade = CascadeType.MERGE)
     @NotNull

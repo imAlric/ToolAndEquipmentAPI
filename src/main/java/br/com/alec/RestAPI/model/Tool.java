@@ -1,8 +1,10 @@
 package br.com.alec.RestAPI.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.springframework.data.domain.Persistable;
 
 @Entity
 @Table(name = "tools")
@@ -11,8 +13,10 @@ public class Tool {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length=42)
+    @NotBlank
     private String tool_type;
     @Column(length=82)
+    @NotBlank
     private String tool_brand;
     @Column(length=1)
     @Convert(converter = StatusConv.class)

@@ -24,7 +24,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     Page<Order> findPendingByCustomerId(Long id, Pageable pageable);
     @Query("FROM Order o WHERE o.customer.id = ?1 AND o.status = br.com.alec.RestAPI.model.Status.Closed AND o.status != br.com.alec.RestAPI.model.Status.Deleted")
     Page<Order> findClosedByCustomerId(Long id, Pageable pageable);
-
     @Query("FROM Order o WHERE o.staff.id = ?1 AND o.status != br.com.alec.RestAPI.model.Status.Deleted")
     Page<Order> findByStaffId(Long id, Pageable pageable);
     @Query("FROM Order o WHERE o.staff.id = ?1 AND o.status = br.com.alec.RestAPI.model.Status.Pending AND o.status != br.com.alec.RestAPI.model.Status.Deleted")

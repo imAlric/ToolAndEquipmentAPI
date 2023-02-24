@@ -3,8 +3,10 @@ package br.com.alec.RestAPI.controller;
 import br.com.alec.RestAPI.exception.Order.*;
 import br.com.alec.RestAPI.model.*;
 import br.com.alec.RestAPI.repository.*;
+import br.com.alec.RestAPI.service.OrderService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -41,6 +43,8 @@ public class OrderControllerTest {
     CustomerRepository CustomerRepo;
     @MockBean
     LogRepository LogRepo;
+    @MockBean
+    OrderService orderService;
 
     public static String asJsonString(final Object obj) {
         try {
@@ -435,9 +439,11 @@ public class OrderControllerTest {
     @Test
     public void givenNewOrderIsCreated_whenSaveOrder_thenReturn201() throws Exception{
         Order order = new Order("Cabo partido no meio, cabeça do martelo caiu.", Date.valueOf("2023-02-13"),
-        new Tool("Martelo", "Tramontina", Status.Active),
-        new Customer("José Rodrigues", "51938740963", "jose@gmail.com", "41987944006", Status.Active),
-        new Staff("Alec Fernando", "12413329919", "Atendente", Status.Active));
+        new Tool("Martelo", "Tramontina"),
+        new Customer("José Rodrigues", "51938740963", "jose@gmail.com", "41987944006"),
+        new Staff("Alec Fernando", "12413329919", "Atendente"));
+
+        Mockito.when(OrderRepo.save(order)).thenReturn(order);
 
         mvc.perform(post("/order/new")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)

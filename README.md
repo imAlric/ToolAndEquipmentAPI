@@ -19,7 +19,6 @@ API REST para execução, envio, pesquisa e controle de dados em um contexto de 
 ```shell
 ./mvnw spring-boot:run
 ```
-
 <a href="#commands">➤ Comandos da API</a>
 
 <h2><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/bookmark-tabs_1f4d1.png"/> Sumário</h2>
@@ -35,20 +34,24 @@ API REST para execução, envio, pesquisa e controle de dados em um contexto de 
 
 <h2 id="tech"><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/man-technologist_1f468-200d-1f4bb.png"/> Tecnologias Utilizadas:</h2>
 
-<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg"/> IntelliJ IDEA
+<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg"/>
+IntelliJ IDEA
 <br/>
 <br/>
-<img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/java/java-plain.svg"/> Java 17
+<img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/java/java-plain.svg"/>
+Java 17
 <br/>
 <br/>
 <img style="vertical-align:middle" width="25" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/spring/spring-original.svg"/>
 Spring-Boot & SpringMVC
 <br/>
 <br/>
-<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Apache_Feather_Logo.svg"/> Maven
+<img style="vertical-align:middle" width="25" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Apache_Feather_Logo.svg"/>
+Maven
 <br/>
 <br/>
-<img style="vertical-align:middle" width="25" src="https://www.vectorlogo.zone/logos/hibernate/hibernate-icon.svg"/> JPA & Hibernate
+<img style="vertical-align:middle" width="25" src="https://www.vectorlogo.zone/logos/hibernate/hibernate-icon.svg"/>
+JPA & Hibernate
 
 <h2 id="about"><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/information_2139-fe0f.png"/> Sobre o Sistema:</h2>
 Esta API foi desenvolvida com Java, utilizando Spring-Boot e Maven, SpringMVC, JPA e Hibernate,
@@ -90,6 +93,7 @@ ID do funcionário </small>[GET]</h5>
 <details>
 <summary><strong>/tool</strong> <small> > ferramentas/equipamentos</small></summary>
 
+<h5>/new <small>> cadastrar uma nova ferramenta </small>[POST]</h5>
 <h5>/find/{id} <small>> encontrar uma ferramenta/equipamento por ID </small>[GET]</h5>
 <h5>/find/active <small>> encontrar todas as ferramentas/equipamentos ativos </small>[GET]</h5>
 
@@ -99,7 +103,9 @@ ID do funcionário </small>[GET]</h5>
 <details>
 <summary><strong>/customer</strong> <small> > clientes</small></summary>
 
+<h5>/new <small>> cadastrar um novo cliente </small>[POST]</h5>
 <h5>/find/{id} <small>> encontrar um cliente por ID </small>[GET]</h5>
+<h5>/find/cpf/{cpf} <small>> encontrar um cliente por CPF </small>[GET]</h5>
 <h5>/find/active <small>> encontrar todos os clientes ativos </small>[GET]</h5>
 
 </details>
@@ -108,7 +114,9 @@ ID do funcionário </small>[GET]</h5>
 <details>
 <summary><strong>/staff</strong> <small> > funcionários</small></summary>
 
+<h5>/new <small>> cadastrar um novo funcionário </small>[POST]</h5>
 <h5>/find/{id} <small>> encontrar um funcionário por ID </small>[GET]</h5>
+<h5>/find/cpf/{cpf} <small>> encontrar um funcionário por CPF </small>[GET]</h5>
 <h5>/find/active <small>> encontrar todos os funcionários ativos </small>[GET]</h5>
 
 </details>
@@ -121,19 +129,23 @@ Os testes unitários do sistema podem ser feitos por meio do comando Maven:
 ```
 
 <h2 id="use"><img style="vertical-align:middle" width="22" src="https://em-content.zobj.net/thumbs/120/microsoft/319/desktop-computer_1f5a5-fe0f.png"/> Utilizar o Sistema:</h2>
-<p><img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/warning_26a0-fe0f.png"/> <strong>Nota Importante:</strong> Todas as pesquisas com mais de um resultado trazem paginação.
-Para controlar o número de resultados e a página acessada, utilize:</p>
+<img width="22" style="vertical-align:middle" src="https://em-content.zobj.net/thumbs/120/microsoft/319/warning_26a0-fe0f.png"/>
+**Nota Importante:**
+Todas as pesquisas com mais de um resultado trazem paginação.
+Para controlar o número de resultados e a página acessada, utilize:
 
 ```url
 ?page={número da página}&size={número de resultados}
 ```
+
 **EXEMPLO**:
+
 ```url
 http://localhost:8080/order/find/pending?page=1&size=15
 ```
+
 Por padrão o número de resultados de cada página é **10**, sempre começando pela página **0**.
 <h3 id="commands"><img style="vertical-align:middle" width="22" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Windows_Terminal_logo.svg"/> Inicializando a API:</h3>
-
 Execute o sistema por meio do comando Maven:
 
 ```shell
@@ -279,6 +291,18 @@ DELETE localhost:8080/order/{id da ordem de serviço}
 <details>
 <summary><strong>Ferramenta/Equipamento</strong> <small>("/tool")</small></summary>
 
+<h4>Cadastrar uma nova ferramenta/equipamento<small>("/tool/new")</small></h4>
+
+```url
+POST http://localhost:8080/tool/new
+```
+```JSON
+{
+    "tool_type": "<tipo de ferramenta/equipamento (ex:lavadora de pressão)>",
+    "tool_brand": "<marca da ferramenta/equipamento (ex:WAP)>"
+}
+```
+
 <h4>Encontrar uma ferramenta/equipamento por ID. <small>("/tool/find/<strong>{id}</strong>")</small></h4>
 
 ```url
@@ -296,10 +320,30 @@ GET http://localhost:8080/tool/find/active
 <details>
 <summary><strong>Cliente</strong> <small>("/customer")</small></summary>
 
+<h4>Cadastrar um novo cliente<small>("/customer/new")</small></h4>
+
+```url
+POST http://localhost:8080/customer/new
+```
+```JSON
+{
+    "fullname": "<nome do cliente>",
+    "cpf": "<cpf do cliente>",
+    "phone": "<telefone do cliente>",
+    "email": "<email do cliente>"
+}
+```
+
 <h4>Encontrar um cliente por ID. <small>("/customer/find/<strong>{id}</strong>")</small></h4>
 
 ```url
 GET http://localhost:8080/customer/find/{id do cliente}
+```
+
+<h4>Encontrar um cliente por CPF. <small>("/customer/find/cpf<strong>{cpf}</strong>")</small></h4>
+
+```url
+GET http://localhost:8080/customer/find/cpf/{cpf do cliente}
 ```
 
 <h4>Encontrar todos os clientes ativos. <small>("/customer/find/active")</small></h4>
@@ -313,10 +357,29 @@ GET http://localhost:8080/customer/find/active
 <details>
 <summary><strong>Funcionário</strong> <small>("/staff")</small></summary>
 
+<h4>Cadastrar um novo funcionário<small>("/staff/new")</small></h4>
+
+```url
+POST http://localhost:8080/staff/new
+```
+```JSON
+{
+    "fullname": "<nome do funcionário>",
+    "cpf": "<cpf do funcionário>",
+    "role": "<cargo do funcionário>"
+}
+```
+
 <h4>Encontrar um funcionário por ID. <small>("/staff/find/<strong>{id}</strong>")</small></h4>
 
 ```url
 GET http://localhost:8080/staff/find/{id do funcionário}
+```
+
+<h4>Encontrar um funcionário por CPF. <small>("/staff/find/cpf<strong>{cpf}</strong>")</small></h4>
+
+```url
+GET http://localhost:8080/staff/find/cpf/{cpf do funcionário}
 ```
 
 <h4>Encontrar todos os funcionários ativos. <small>("/staff/find/active")</small></h4>
@@ -475,6 +538,17 @@ curl --location --request DELETE 'localhost:8080/order/<id da ordem de serviço>
 <details>
 <summary><strong>Ferramenta/Equipamento</strong> <small>("/tool")</small></summary>
 
+<h4>(POST) Cadastrar uma nova ferramenta/equipamento.<small>("/tool/new")</small></h4>
+
+```shell
+curl --location 'localhost:8080/tool/new' \
+--header 'Content-Type: application/json' \
+--data '{
+    "tool_type": <tipo de ferramenta/equipamento (ex:lavadora de pressão)>,
+    "tool_brand": <marca da ferramenta/equipamento (ex:WAP)>
+}'
+```
+
 <h4>(GET) Encontrar uma ferramenta/equipamento por ID. <small>("/tool/find/<strong>{id}</strong>")</small></h4>
 
 ```shell
@@ -494,10 +568,30 @@ curl --location 'localhost:8080/tool/find/active' \
 <details>
 <summary><strong>Cliente</strong> <small>("/customer")</small></summary>
 
+<h4>(POST) Cadastrar um novo cliente.<small>("/customer/new")</small></h4>
+
+```shell
+curl --location 'localhost:8080/customer/new' \
+--header 'Content-Type: application/json' \
+--data '{
+        "fullname": <nome do cliente>,
+        "cpf": <cpf do cliente>,
+        "phone": <telefone do cliente>,
+        "email": <email do cliente>
+    }'
+```
+
 <h4>(GET) Encontrar um cliente por ID. <small>("/customer/find/<strong>{id}</strong>")</small></h4>
 
 ```shell
 curl --location 'localhost:8080/customer/find/<id do cliente>' \
+--data ''
+```
+
+<h4>(GET) Encontrar um cliente por CPF. <small>("/customer/find/cpf/<strong>{id}</strong>")</small></h4>
+
+```shell
+curl --location 'localhost:8080/customer/find/cpf/<cpf do cliente>' \
 --data ''
 ```
 
@@ -513,10 +607,30 @@ curl --location 'localhost:8080/customer/find/active' \
 <details>
 <summary><strong>Funcionário</strong> <small>("/staff")</small></summary>
 
+<h4>(POST) Cadastrar um novo funcionário.<small>("/staff/new")</small></h4>
+
+```shell
+curl --location 'localhost:8080/staff/new' \
+--header 'Content-Type: application/json' \
+--data '{
+    "fullname": <nome do funcionário>,
+    "cpf": <cpf do funcionário>,
+    "role": <cargo do funcionário>
+}'
+```
+
+
 <h4>(GET) Encontrar um funcionário por ID. <small>("/staff/find/<strong>{id}</strong>")</small></h4>
 
 ```shell
 curl --location 'localhost:8080/staff/find/<id do funcionário>' \
+--data ''
+```
+
+<h4>(GET) Encontrar um funcionário por CPF. <small>("/staff/find/cpf/<strong>{id}</strong>")</small></h4>
+
+```shell
+curl --location 'localhost:8080/staff/find/cpf/<cpf do funcionário>' \
 --data ''
 ```
 

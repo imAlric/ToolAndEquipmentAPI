@@ -1,6 +1,7 @@
 package br.com.alec.RestAPI.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -12,12 +13,12 @@ public class Staff {
     @Column(length=128)
     private String fullname;
     @Column(length=11)
-    @NotNull
+    @Size(min=11)
+    @NotBlank
     private String cpf;
     @Column(length=32)
     private String role;
     @Column(length=1)
-    @NotNull
     @Convert(converter = StatusConv.class)
     private Status status;
 

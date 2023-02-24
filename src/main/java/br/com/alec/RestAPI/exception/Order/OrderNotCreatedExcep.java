@@ -1,7 +1,5 @@
 package br.com.alec.RestAPI.exception.Order;
 
-import br.com.alec.RestAPI.model.Order;
-
 public class OrderNotCreatedExcep extends RuntimeException{
     public OrderNotCreatedExcep(){
         super("OrderNotCreated: Não foi possível executar a criação do pedido." +
